@@ -28,9 +28,9 @@ class StatusTests(unittest.TestCase):
 
         return prog
 
-    def test_run_not_process_state_fatal(self):
+    def test_run_not_process_state(self):
         prog = self._get_mock()
-        prog.stdin.write('eventname:PROCESS_STATE len:0\n')
+        prog.stdin.write('eventname:TICK len:0\n')
         prog.stdin.seek(0)
         prog.run(runonce=True)
         self.assertEqual(prog.stdout.getvalue(), 'READY\nRESULT 2\nOK')
