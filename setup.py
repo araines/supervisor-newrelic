@@ -16,8 +16,9 @@ setup(
     classifiers = [],
 
     install_requires = ['requests', 'supervisor'],
+    tests_require = ['nose', 'mock'],
+    test_suite = 'nose.collector',
 
-    test_suite = 'tests',
     packages = ['supervisor_newrelic'],
     entry_points = {
         'console_scripts': {
