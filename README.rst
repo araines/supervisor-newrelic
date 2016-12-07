@@ -8,8 +8,8 @@
 supervisor_newrelic
 ===================
 
-Collection of `Supervisor <http://supervisord.org>` plugins to provide metrics
-and monitoring within `New Relic <https://newrelic.com/>`.
+Collection of `Supervisor <http://supervisord.org>`_ plugins to provide metrics
+and monitoring within `New Relic <https://newrelic.com/>`_.
 
 status plugin
 -------------
@@ -21,7 +21,7 @@ Installation & Configuration
 ****************************
 
 `Register an Insights API Insert Key
-<https://docs.newrelic.com/docs/insights/new-relic-insights/custom-events/insert-custom-events-insights-api#register>`
+<https://docs.newrelic.com/docs/insights/new-relic-insights/custom-events/insert-custom-events-insights-api#register>`_
 
 Install via pip::
 
