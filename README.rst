@@ -1,5 +1,9 @@
 .. image:: https://codeship.com/projects/aba10710-9dfd-0134-7e83-328bd15b6072/status?branch=master
     :target: https://codeship.com/projects/188837
+.. image:: https://badge.fury.io/py/supervisor_newrelic.svg
+    :target: https://badge.fury.io/py/supervisor_newrelic
+.. image:: https://img.shields.io/badge/language-Python-blue.svg
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
 
 supervisor_newrelic
 ===================
