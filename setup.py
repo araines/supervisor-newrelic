@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-version = '1.0.3'
+version = '1.0.7'
 
 setup(
     name = 'supervisor_newrelic',
@@ -24,5 +24,5 @@ setup(
         'console_scripts': {
             'supervisor_newrelic_status = supervisor_newrelic.status:main',
         },
-    }
+    },
 )
