@@ -36,7 +36,7 @@ Create a new configuration file: ``/etc/supervisor.d/newrelic.conf`` with conten
 Where:
 
 - NEWRELIC_ACCOUNT_NO gets replaced with your NewRelic account number (e.g. 1121234)
-- NEWRELIC_KEY gets replaced with the Insights API Insert Key (as registered earlier)
+- NEWRELIC_KEY gets replaced with the Insights API Insert Key (as registered earlier - e.g. VkiYX90CZxxPl7FuQAxrQXNv5gZnx80e)
 
 Reload the supervisord configuration::
 
