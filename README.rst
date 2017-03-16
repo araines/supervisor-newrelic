@@ -33,6 +33,11 @@ Create a new configuration file: ``/etc/supervisor.d/newrelic.conf`` with conten
     command = supervisor_newrelic_status --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY>
     events = PROCESS_STATE
 
+Where:
+
+- NEWRELIC_ACCOUNT_NO gets replaced with your NewRelic account number (e.g. 1121234)
+- NEWRELIC_KEY gets replaced with the Insights API Insert Key (as registered earlier - e.g. VkiYX90CZxxPl7FuQAxrQXNv5gZnx80e)
+
 Reload the supervisord configuration::
 
     supervisorctl reread
