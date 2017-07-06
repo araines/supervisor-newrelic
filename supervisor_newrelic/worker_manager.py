@@ -26,15 +26,12 @@ def push_monitoring_data(command_list, status):
     for row in processes[1:]:
         ps_aux_row_data = row.split(None, nfields)
         for command in command_list:
-            if command in ps_aux_row_data[-1]:
-                print command, ps_aux_row_data[2], ps_aux_row_data[5]
-                '''
+            if len(ps_aux_row_data) and command in ps_aux_row_data[-1]:
                 status.send_worker_monitoring_data(
                     command,
                     ps_aux_row_data[2], #cpu_percentage
                     ps_aux_row_data[5]  #RSS -> RAM memory consumption
                 )
-                '''
                 break
 
 
