@@ -23,6 +23,7 @@ setup(
     entry_points = {
         'console_scripts': {
             'supervisor_newrelic_status = supervisor_newrelic.status:main',
+            'supervisor_newrelic_worker_monitor = supervisor_newrelic.worker_manager:main',
         },
     },
 )
