@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-version = '1.0.8'
+version = 'v1.0.9'
 
 setup(
     name = 'supervisor_newrelic',
