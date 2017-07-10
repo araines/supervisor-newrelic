@@ -59,7 +59,7 @@ Configuration for Worker Monitoring
 Create a new configuration file: ``/etc/supervisor.d/conf.d/newrelic.conf`` with contents::
 
 	[program:worker_monitor]
-command = supervisor_newrelic_worker_monitor --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY> --event_type <EVENT_NAME_FOR_APPLICATION_IN_NEW_RELIC> --supervisor_conf <SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER>
+	command = supervisor_newrelic_worker_monitor --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY> --event_type <EVENT_NAME_FOR_APPLICATION_IN_NEW_RELIC> --supervisor_conf <SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER>
 
 Where:
 
