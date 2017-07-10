@@ -62,9 +62,9 @@ class Status(object):
         return response.status_code == requests.codes.ok
 
 
-    def send_worker_monitoring_data(self, name, cpu_percentage, memory):
+    def send_worker_monitoring_data(self, name, cpu_percentage, memory, event_type):
         data = [{
-                'eventType': 'Woker:Monitor',
+                'eventType': event_type,
                 'commandName': name,
                 'cpuPercentage': cpu_percentage,
                 'memory': memory,

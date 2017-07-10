@@ -5,7 +5,7 @@ import os
 import subprocess
 
 
-def push_monitoring_data(command_list, status):
+def push_monitoring_data(command_list, status, event_type):
     '''
     headers of ps_aux_row_data
     ['USER',
@@ -30,7 +30,8 @@ def push_monitoring_data(command_list, status):
                 status.send_worker_monitoring_data(
                     command,
                     ps_aux_row_data[2], #cpu_percentage
-                    ps_aux_row_data[5]  #RSS -> RAM memory consumption
+                    ps_aux_row_data[5], #RSS -> RAM  consumption
+                    event_type
                 )
                 break
 
@@ -58,7 +59,7 @@ def parse_supervisor_command(
         command_list.append(command)
 
 
-def process_command_monitoring_details(supervisor_file_name, status):
+def process_command_monitoring_details(supervisor_file_name, status, event_type):
     if supervisor_file_name:
         while True:
             supervisor_conf = os.path.join(
@@ -74,7 +75,7 @@ def process_command_monitoring_details(supervisor_file_name, status):
                             line,
                             parse_phpsymfony_command
                         )
-            push_monitoring_data(command_list, status)
+            push_monitoring_data(command_list, status, event_type)
             time.sleep(10)
 
 
@@ -83,11 +84,12 @@ def main():
     parser = argparse.ArgumentParser(description='Supervisor command monitor')
     parser.add_argument('--account', '-a', help='New Relic account number')
     parser.add_argument('--key', '-k', help='New Relic Insights insert key')
+    parser.add_argument('--event_type', '-e', help='Application Event Name to appear in new relic dashboard')
     parser.add_argument('--supervisor_conf', '-s', help='supervisor_file_name')
     args = parser.parse_args()
 
     status = Status(args.account, args.key)
-    process_command_monitoring_details(args.supervisor_conf, status)
+    process_command_monitoring_details(args.supervisor_conf, status, args.event_type)
 
 
 if __name__ == '__main__':
