@@ -39,8 +39,7 @@ def push_monitoring_data(command_list, status, event_type):
 def parse_phpsymfony_command(command_list, command):
     '''specific to application. Write your own logic to make command_name
     eg -
-        command = '/home/ubuntu/www/repo/app/console api:service_name http://subdoman.domain.com'
-        command_name = 'api:service_name'
+        command = 'app/console command_name host'
     '''
     command_name = command.split(" ",2)[1]
     command_list.append(command_name)
@@ -59,7 +58,8 @@ def parse_supervisor_command(
         command_list.append(command)
 
 
-def process_command_monitoring_details(supervisor_file_name, status, event_type):
+def process_command_monitoring_details(
+        supervisor_file_name, status, event_type, time_seconds):
     if supervisor_file_name:
         while True:
             supervisor_conf = os.path.join(
@@ -76,7 +76,7 @@ def process_command_monitoring_details(supervisor_file_name, status, event_type)
                             parse_phpsymfony_command
                         )
             push_monitoring_data(command_list, status, event_type)
-            time.sleep(10)
+            time.sleep(time_seconds)
 
 
 
@@ -84,12 +84,22 @@ def main():
     parser = argparse.ArgumentParser(description='Supervisor command monitor')
     parser.add_argument('--account', '-a', help='New Relic account number')
     parser.add_argument('--key', '-k', help='New Relic Insights insert key')
-    parser.add_argument('--event_type', '-e', help='Application Event Name to appear in new relic dashboard')
+    parser.add_argument(
+        '--event_type',
+        '-e',
+        help='Application Event Name to appear in new relic dashboard'
+    )
     parser.add_argument('--supervisor_conf', '-s', help='supervisor_file_name')
+    parser.add_argument('--time_seconds', '-s', help='time_interval')
     args = parser.parse_args()
 
     status = Status(args.account, args.key)
-    process_command_monitoring_details(args.supervisor_conf, status, args.event_type)
+    process_command_monitoring_details(
+        args.supervisor_conf,
+        status,
+        args.event_type
+        args.time_seconds
+    )
 
 
 if __name__ == '__main__':

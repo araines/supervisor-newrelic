@@ -59,14 +59,15 @@ Configuration for Worker Monitoring
 Create a new configuration file: ``/etc/supervisor.d/conf.d/newrelic.conf`` with contents::
 
 	[program:worker_monitor]
-	command = supervisor_newrelic_worker_monitor --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY> --event_type <EVENT_NAME_FOR_APPLICATION_IN_NEW_RELIC> --supervisor_conf <SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER>
+	command = supervisor_newrelic_worker_monitor --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY> --event_type <EVENT_NAME_FOR_APPLICATION_IN_NEW_RELIC> --supervisor_conf <SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER> --time_seconds <SECONDS>
 
 Where:
 
 - NEWRELIC_ACCOUNT_NO gets replaced with your NewRelic account number (e.g. 1121234)
 - NEWRELIC_KEY gets replaced with the Insights API Insert Key (as registered earlier - e.g. VkiYX90CZxxPl7FuQAxrQXNv5gZnx80e)
 - EVENT_NAME_FOR_APPLICATION_IN_NEW_RELIC eg. WorkerMonitor
-- SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER gets replaced by the your wokrer configuration present in /etc/supervisor.d/conf.d/ - e.g. my_app.conf
+- SUPERVISOR_CONFIGURATION_FILE_FOR_THE_WORKER gets replaced by the your worker configuration present in /etc/supervisor.d/conf.d/ - e.g. my_app.conf
+- SECONDS gets replaced the number of seconds in a gap which data needs to pushed to new relic eg. if set to 10 seconds data will get pushed every 10 seconds
 
 Reload the supervisord configuration::
 
