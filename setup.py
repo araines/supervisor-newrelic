@@ -15,7 +15,7 @@ setup(
     keywords = ['supervisor', 'supervisord', 'newrelic', 'monitoring'],
     classifiers = [],
 
-    install_requires = ['requests', 'supervisor'],
+    install_requires = ['git+git://github.com/practo/requests.git@v2.9.1.1-practo', 'supervisor'],
     tests_require = ['nose', 'mock'],
     test_suite = 'nose.collector',
 
