@@ -25,7 +25,7 @@ Installation
 
 Install via pip::
 
-    pip install supervisor_newrelic
+    pip install git+https://github.com/practo/supervisor-newrelic.git
 
 Configuration for Supervisor Status Monitoring
 **********************************************
