@@ -90,7 +90,7 @@ def main():
         help='Application Event Name to appear in new relic dashboard'
     )
     parser.add_argument('--supervisor_conf', '-s', help='supervisor_file_name')
-    parser.add_argument('--time_seconds', '-s', help='time_interval')
+    parser.add_argument('--time_seconds', '-t', help='time_interval')
     args = parser.parse_args()
 
     status = Status(args.account, args.key)
