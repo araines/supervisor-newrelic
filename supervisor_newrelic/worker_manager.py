@@ -97,7 +97,7 @@ def main():
     process_command_monitoring_details(
         args.supervisor_conf,
         status,
-        args.event_type
+        args.event_type,
         args.time_seconds
     )
 
