@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-version = '1.0.7'
+version = 'v1.0.9'
 
 setup(
     name = 'supervisor_newrelic',
@@ -15,7 +15,7 @@ setup(
     keywords = ['supervisor', 'supervisord', 'newrelic', 'monitoring'],
     classifiers = [],
 
-    install_requires = ['requests', 'supervisor'],
+    install_requires = ['git+git://github.com/practo/requests.git@v2.9.1.1-practo', 'supervisor'],
     tests_require = ['nose', 'mock'],
     test_suite = 'nose.collector',
 
@@ -23,6 +23,7 @@ setup(
     entry_points = {
         'console_scripts': {
             'supervisor_newrelic_status = supervisor_newrelic.status:main',
+            'supervisor_newrelic_worker_monitor = supervisor_newrelic.worker_manager:main',
         },
     },
 )

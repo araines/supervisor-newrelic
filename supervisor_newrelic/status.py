@@ -37,7 +37,7 @@ class Status(object):
 
             pheaders, pdata = childutils.eventdata(payload+'\n')
 
-            if self.send(pheaders['processname'], pheaders['groupname'],
+            if self.send_supervisor_status(pheaders['processname'], pheaders['groupname'],
                     headers['eventname']):
                 childutils.listener.ok(self.stdout)
             else:
@@ -47,7 +47,7 @@ class Status(object):
                 break
 
 
-    def send(self, name, group, status):
+    def send_supervisor_status(self, name, group, status):
         data = [{
                 'eventType': 'Supervisor:Status',
                 'processName': name,
@@ -60,6 +60,22 @@ class Status(object):
         response = requests.post(url, json=data, headers=headers)
 
         return response.status_code == requests.codes.ok
+
+
+    def send_worker_monitoring_data(self, name, cpu_percentage, memory, event_type):
+        data = [{
+                'eventType': event_type,
+                'commandName': name,
+                'cpuPercentage': cpu_percentage,
+                'memory': memory,
+        }]
+        url = ('https://insights-collector.newrelic.com/'
+                'v1/accounts/%s/events' % self.account)
+        headers = {'X-Insert-Key': self.key}
+        response = requests.post(url, json=data, headers=headers)
+
+        return response.status_code == requests.codes.ok
+
 
 def main():
     parser = argparse.ArgumentParser(description='Supervisor event listener')
