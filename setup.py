@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-version = '1.0.9'
+version = '1.0.10'
 
 setup(
     name = 'supervisor_newrelic',
@@ -17,7 +17,6 @@ setup(
 
     install_requires = [
         'requests>=2.4.2',
-        'setuptools>=38.0.0',
         'supervisor>=3.3.3',
     ],
     tests_require = ['nose', 'mock'],
