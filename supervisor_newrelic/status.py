@@ -48,7 +48,7 @@ class Status(object):
                 break
 
 
-    def send(self, name, group, status, additional_args):
+    def send(self, name, group, status, additional_params):
         event = {
                 'eventType': 'Supervisor:Status',
                 'processName': name,
@@ -56,7 +56,7 @@ class Status(object):
                 'status': status,
         }
 
-        event.update(additional_args)
+        event.update(additional_params)
 
         data = [event]
         url = ('https://insights-collector.newrelic.com/'
