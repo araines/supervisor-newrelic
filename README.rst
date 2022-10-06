@@ -49,3 +49,4 @@ attributes:
 - processName: The name of the process which changed status
 - groupName: The name of the group which changed status
 - status: The status it changed to
+- additional params (if added)
