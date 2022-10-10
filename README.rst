@@ -30,13 +30,14 @@ Install via pip::
 Create a new configuration file: ``/etc/supervisor.d/newrelic.conf`` with contents::
 
     [eventlistener:newrelic_status]
-    command = supervisor_newrelic_status --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY>
+    command = supervisor_newrelic_status --account <NEWRELIC_ACCOUNT_NO> --key <NEWRELIC_KEY> --param <PARAM_KEY> <PARAM_VALUE>
     events = PROCESS_STATE
 
 Where:
 
 - NEWRELIC_ACCOUNT_NO gets replaced with your NewRelic account number (e.g. 1121234)
 - NEWRELIC_KEY gets replaced with the Insights API Insert Key (as registered earlier - e.g. VkiYX90CZxxPl7FuQAxrQXNv5gZnx80e)
+- `--param` is optional param which can be set and send to New Relic with `key` set to `PARAM_KEY` and `value` set to `PARAM_VALUE`. Hint: multiple params can be set at the same time.
 
 Reload the supervisord configuration::
 
